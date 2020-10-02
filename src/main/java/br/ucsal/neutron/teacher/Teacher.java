@@ -6,6 +6,8 @@ public class Teacher {
 	private String course;
 	private String email;
 	private String research;
+	private String degree;
+	
 	public Long getId() {
 		return id;
 	}
@@ -35,6 +37,12 @@ public class Teacher {
 	}
 	public void setResearch(String research) {
 		this.research = research;
+	}
+	public String getDegree() {
+		return degree;
+	}
+	public void setDegree(String degree) {
+		this.degree = degree;
 	}
 	
 	
