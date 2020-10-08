@@ -1,9 +1,8 @@
-package br.ucsal.neutron.course.dao;
+package br.ucsal.neutron.course;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import br.ucsal.neutron.course.Course;
 
 public class CourseDAO {
 
@@ -17,6 +16,16 @@ public class CourseDAO {
 	public List<Course> listar() {
 		return new ArrayList<Course>(courses);
 	}
+	
+	public static Course findById(String id) {
+		Course course = null;
+		for (Course c : courses) {
+			if(c.getId().equals(id)) {
+				course = c;
+			}	
+		}		
+		return course;
+	}
 
 	public void delet(String id) {
 		Course course = null;
@@ -26,5 +35,16 @@ public class CourseDAO {
 			}
 		}
 		courses.remove(course);
+	}
+
+	public static void atualizar(Course course) {
+		for (Course c : courses) {
+			if(c.getId().equals(course.getId())) {
+				c.setName(course.getName());
+				c.setCoordinator(course.getCoordinator());
+				c.setDescription(course.getDescription());
+			}
+		}
+		
 	}
 }
