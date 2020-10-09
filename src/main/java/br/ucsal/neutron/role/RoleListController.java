@@ -1,4 +1,4 @@
-package br.ucsal.neutron.role.controller;
+package br.ucsal.neutron.role;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,12 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.neutron.role.dao.RoleDAO;
-import br.ucsal.neutron.role.model.Role;
 
 
-
-@WebServlet("/role")
+@WebServlet("/rolelist")
 public class RoleListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
