@@ -1,10 +1,8 @@
-package br.ucsal.neutron.role.dao;
+package br.ucsal.neutron.role;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import br.ucsal.neutron.role.model.Role;
 
 public class RoleDAO {
 

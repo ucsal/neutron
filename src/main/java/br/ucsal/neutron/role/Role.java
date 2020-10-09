@@ -1,4 +1,4 @@
-package br.ucsal.neutron.role.model;
+package br.ucsal.neutron.role;
 
 public class Role {
 
