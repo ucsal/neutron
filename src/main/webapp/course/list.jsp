@@ -36,6 +36,7 @@
 				<tr>
 					<th>NOME</th>
 					<th>COORDENADOR</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,7 +45,13 @@
 				<tr>
 					<td>${c.name}</td>
 					<td>${c.coordinator}</td>
-					<td><a href="./coursedelet?id=${c.id}">Excluir</a></td>
+					<td>
+					
+					<a href="/courseview?id=${c.id}">Visualizar&nbsp;</a>
+					<a href="/courseedit?id=${c.id}">Editar&nbsp;</a>
+					<a href="/coursedelet?id=${c.id}">Excluir</a>
+					
+					</td>			
 				</tr>
 				</c:forEach>
 				
