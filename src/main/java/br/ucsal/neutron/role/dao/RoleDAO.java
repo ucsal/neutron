@@ -17,9 +17,9 @@ public class RoleDAO {
 
 	public void delete(String id) {
 		Role role = null;
-		for (Role c : roles) {
-			if (c.getId().equals(id)) {
-				role = c;
+		for (Role r : roles) {
+			if (r.getId().equals(id)) {
+				role = r;
 			}
 		}
 		roles.remove(role);

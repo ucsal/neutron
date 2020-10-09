@@ -14,7 +14,7 @@ import br.ucsal.neutron.role.model.Role;
 
 
 
-@WebServlet("/rolelist")
+@WebServlet("/role")
 public class RoleListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -5,27 +5,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cadastro de função</title>
+<title>Cadastro de curso</title>
 <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
 <body>
 <div class="container-fluid">
-	<h1>Formulário de Função</h1>
+	<h1>Formulário de função</h1>
 	
-	<form action="/coursesave" method="post">
+	<form action="/rolesave" method="post">
 	<div class="form-group">
     	<label for="Name">Nome</label>
     	<input type="text" class="form-control" name="name" id="name" 
-    		   placeholder="Nome do curso" required>
+    		   placeholder="Seu nome" required>
     </div>
     
+	
   
     <div class="form-group">
-  		<label for="description">Descrição da funçãao</label>
+  		<label for="description">Descrição da função</label>
     	<textarea class="form-control" name="description" id="description" rows="3" 
-    	          placeholder="Descrição do curso" required></textarea>
+    	          placeholder="Descrição da função" required></textarea>
     </div>	 
 
 		<button type="submit" class="btn btn-primary">Salvar</button>
