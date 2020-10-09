@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ucsal.neutron.course.dao.CourseDAO;
+import br.ucsal.neutron.role.dao.RoleDAO;
 
 
 @WebServlet("/roledelete")
 public class RoleDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	CourseDAO dao = new CourseDAO();
+	RoleDAO dao = new RoleDAO();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-		dao.delet(id);
-		response.sendRedirect("./role");
+		dao.delete(id);
+		response.sendRedirect("./role/list.jsp");
 	}
     
 }
