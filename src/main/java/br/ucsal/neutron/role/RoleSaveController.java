@@ -24,7 +24,7 @@ public class RoleSaveController extends HttpServlet {
 
 		Role role = new Role(name, description);
 		dao.salvar(role);
-		request.getSession().setAttribute("salve_sucess", true);
+		request.getSession().setAttribute("save_sucess", true);
 
 		response.sendRedirect("./rolelist");
 		
