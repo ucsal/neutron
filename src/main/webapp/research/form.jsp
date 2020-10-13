@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Editar</title>
+<title>Cadastro de Pesquisa</title>
 <!-- CSS only -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -13,36 +15,27 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h1>Editar curso</h1>
+		<h1>Formul√°rio de Pesquisa</h1>
 
-		<form action="/course/edit" method="post">
-
-			<input type="hidden" name="id" value="${course.id}">
-
+		<form action="/research/save" method="post">
 			<div class="form-group">
 				<label for="Name">Nome</label> <input type="text"
-					class="form-control" name="name" id="name" value="${course.name}"
-					placeholder="Nome do curso" required>
+					class="form-control" name="name" id="name"
+					placeholder="Nome da pesquisa" required>
 			</div>
 
 			<div class="form-group">
-				<label for="Coordinator">Coordenador</label> <input type="text"
-					class="form-control" name="coordinator" id="coordinator"
-					value="${course.coordinator}"
-					placeholder="Nome do(a) coordenador(a)" required>
-			</div>
+				<label for="Description">Descri√ß√£o</label>
+				<textarea class="form-control" name="description" id="description" 
+				placeholder="Descri√ß√£o da pesquisa" rows="3" required></textarea>
 
-			<div class="form-group">
-				<label for="description">DescriÁ„o do curso</label>
-				<textarea class="form-control" name="description" id="description"
-					rows="3" placeholder="DescriÁ„o do curso" required>${course.description}</textarea>
 			</div>
 
 			<button type="submit" class="btn btn-primary">Salvar</button>
 			<br>
 		</form>
 
-		<br> <a href="/course" class="btn btn-secondary">Voltar</a>
+		<br> <a href="/research" class="btn btn-secondary">Voltar</a>
 
 	</div>
 	<!-- JS, Popper.js, and jQuery -->
@@ -60,3 +53,4 @@
 
 </body>
 </html>
+>
