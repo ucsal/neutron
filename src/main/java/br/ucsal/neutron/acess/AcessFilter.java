@@ -50,7 +50,6 @@ public class AcessFilter implements Filter {
 			chain.doFilter(request, response);
 		}
 	}
-
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */

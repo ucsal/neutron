@@ -22,7 +22,6 @@ public class AcessLoginController extends HttpServlet {
 
 	public AcessLoginController() {
 		super();
-
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

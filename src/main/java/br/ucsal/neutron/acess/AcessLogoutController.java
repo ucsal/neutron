@@ -22,7 +22,6 @@ public class AcessLogoutController extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -32,8 +31,6 @@ public class AcessLogoutController extends HttpServlet {
 		 HttpSession session = request.getSession();
 	        session.removeAttribute("usuario");
 	        response.sendRedirect("/user/login.jsp");
-
-	        
 		}
 
 	/**
