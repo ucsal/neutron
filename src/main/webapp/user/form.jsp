@@ -15,6 +15,8 @@
   <label for="passWord">PASSWORD:</label>
   <input type="password" id="passWord" name="passWord" value="${user.password}"><br><br>
   <input type="submit" value="Submit">
+  <a href="/user/logout"><button>Voltar</button></a>
+  <a href="/user"><button>Listar usuarios</button></a>
 </form>
 </body>
 </html>

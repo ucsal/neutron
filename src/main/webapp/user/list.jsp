@@ -31,6 +31,7 @@
 		</tbody>
 
 	</table>
+<a href="/user/logout"><button>Voltar</button></a>
 
 </body>
 </html>

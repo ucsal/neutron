@@ -14,5 +14,6 @@
   <input type="password" id="passWord" name="passWord" required="required"><br><br>
   <input type="submit" value="Submit">
 </form>
+   <a href="/user"><button>Listar usuarios</button></a>
 </body>
 </html>
