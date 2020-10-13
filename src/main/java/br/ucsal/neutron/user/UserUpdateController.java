@@ -31,7 +31,7 @@ public class UserUpdateController extends HttpServlet {
 		Long id = Long.parseLong(request.getParameter("id"));
 		User usuario = dao.listarPorID(id);
 		request.setAttribute("user", usuario);
-		request.getRequestDispatcher("/user/update.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/form.jsp").forward(request, response);
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class UserUpdateController extends HttpServlet {
 		String username = request.getParameter("userName");
 		String password = request.getParameter("password");
 		dao.update(username, password);
-		response.sendRedirect("/user/list");
+		response.sendRedirect("/user/");
 	}
 
 }

@@ -10,8 +10,10 @@
 	<h3>Olá ${ user.username }, você está logado no Dashboard!</h3>
 	<br>
 	<p>
-		<a href="/user/logout"><button>Logout</button></a>
+		<a href="/user"><button>Listar usuarios</button></a> <br> 
+		<a href="/user/logout"><button>Logout</button></a> <br> 
 		<input type="button" value="Voltar" onClick="history.go(-1)">
+
 	</p>
 </body>
 </html>

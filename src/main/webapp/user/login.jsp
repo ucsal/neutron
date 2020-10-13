@@ -37,8 +37,7 @@
 	<br>
 	<a href="/user/cadastro.jsp"><button>Criar uma conta</button></a>
 	<br>
-	<br>
-	<a href="/user"><button>Listar usuarios</button></a>
+	<a href="/user/UserTestarLista"><button>Adicionar Usuarios Teste</button></a>
 	<br>${ mensagem }
 
 </body>
