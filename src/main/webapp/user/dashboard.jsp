@@ -7,6 +7,10 @@
 <title>Dashboard</title>
 </head>
 <body>
-	<h3>Olá <%=((br.ucsal.neutron.user.User)session.getAttribute("usuario")).getUsername() %>, você está logado no Dashboard!</h3>
+	<h3>Olá ${ user.username },você está logado no Dashboard!</h3>
+	<br>
+	<p>
+		<a href="/user/logout">Logout</a>
+	</p>
 </body>
 </html>

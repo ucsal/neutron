@@ -25,25 +25,13 @@
 				<td><input type="password" name="userPassword"
 					required="required"></td>
 			</tr>
-			</tr>
-
-			<%
-						String[] erros = { "Login e/ou senha inválidos!", "Você não está logado!" };
-						String erro = request.getParameter("erro");
-
-						if (erro != null) {
-					%>
 
 			<tr>
 
-				<td><%=erros[Integer.parseInt(erro) - 1]%></td>
+				<td>${ erro }</td>
 
 			</tr>
-			<%
-						}
-					%>
 
-			<tr>
 		</table>
 		<button>Login</button>
 	</form>

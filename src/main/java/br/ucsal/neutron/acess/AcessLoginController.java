@@ -39,8 +39,8 @@ public class AcessLoginController extends HttpServlet {
 		String password = request.getParameter("userPassword");
 		User userLogin = dao.buscarLogin(user);
 		if (userLogin == null || !userLogin.getPassword().equals(password)) {
-			request.getSession().setAttribute("msg", "Login e/ou senha inválidos!");
-			response.sendRedirect("/user/login.jsp");
+			request.setAttribute("erro", "Usuario ou Senha invalidos");
+			request.getRequestDispatcher("/user/login.jsp").forward(request, response);
 		} else {
 			request.getSession().setAttribute("usuario", userLogin);
 			response.sendRedirect("/user/dashboard");

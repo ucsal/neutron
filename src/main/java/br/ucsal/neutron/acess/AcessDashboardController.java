@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.ucsal.neutron.user.User;
+
 /**
  * Servlet implementation class AcessDashboardController
  */
@@ -26,6 +28,10 @@ public class AcessDashboardController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		User user = (User)request.getSession().getAttribute("usuario");
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("/user/dashboard.jsp").forward(request, response);
 		
 	}
 
