@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.controller;
+package br.ucsal.neutron.acess;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,17 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.neutron.user.dao.UserDAO;
-import br.ucsal.neutron.user.model.User;
+import br.ucsal.neutron.user.User;
+import br.ucsal.neutron.user.UserDAO;
 
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/user/LoginController")
-public class LoginController extends HttpServlet {
+@WebServlet("/user/login")
+public class UserLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public LoginController() {
+	public UserLoginController() {
 		super();
 
 	}
@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet {
 		for (User usuario : usuarios) {
 			if (userLogin.equals(usuario)) {
 				request.getSession().setAttribute("userName", user);
-				response.sendRedirect("/user/ListController");
+				response.sendRedirect("/user/list");
 			} else {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}

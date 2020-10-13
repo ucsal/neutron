@@ -7,7 +7,7 @@
 <title>Update User</title>
 </head>
 <body>
-<form action="/user/UpdateController" method="post">
+<form action="/user/form" method="post">
   <label for="id">ID:</label>
   <input type="text" id="id" name="id" value="${user.id}"  disabled=""><br><br>
   <label for="userName">USERNAME:</label>

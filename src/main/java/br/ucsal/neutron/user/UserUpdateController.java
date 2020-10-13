@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.controller;
+package br.ucsal.neutron.user;
 
 import java.io.IOException;
 
@@ -8,19 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.neutron.user.dao.UserDAO;
-
 /**
- * Servlet implementation class DeleteUserController
+ * Servlet implementation class UpdateController
  */
-@WebServlet("/user/DeleteUserController")
-public class DeleteUserController extends HttpServlet {
+@WebServlet("/user/form")
+public class UserUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserDAO dao = new UserDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteUserController() {
+    public UserUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,16 +29,19 @@ public class DeleteUserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long id = Long.parseLong(request.getParameter("id"));
-		UserDAO.delete(id);
-		response.sendRedirect("/user/ListController");
+		User usuario = dao.ListarUm(id);
+		request.setAttribute("user", usuario);
+		request.getRequestDispatcher("/user/update.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String username = request.getParameter("userName");
+		String password = request.getParameter("password");
+		dao.update(username, password);
+		response.sendRedirect("/user/list");
 	}
 
 }

@@ -1,9 +1,7 @@
-package br.ucsal.neutron.user.dao;
+package br.ucsal.neutron.user;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import br.ucsal.neutron.user.model.User;
 
 public class UserDAO {
 
@@ -11,11 +9,11 @@ public class UserDAO {
 	private User tester = new User();
 	private int count;
 
-	public static void Save(User usuario) {
+	public void save(User usuario) {
 		usuarios.add(usuario);
 	}
 
-	public static void delete(Long id) {
+	public void delete(Long id) {
 		User tester = null;
 		for (User user : usuarios) {
 			if (user.getId() == id) {
@@ -24,11 +22,10 @@ public class UserDAO {
 		}
 		usuarios.remove(tester);
 	}
-	
-	
-	public List<User> Listar(){ 
+
+	public List<User> Listar() {
 		usuarios.add(new User("Teste", "123"));
-		return usuarios; 
+		return usuarios;
 	}
 
 	public User ListarUm(Long id) {
@@ -47,6 +44,6 @@ public class UserDAO {
 	public void update(String userName, String passWord) {
 		this.tester.setUsername(userName);
 		this.tester.setPassword(passWord);
-		usuarios.set((this.count-1), tester);
+		usuarios.set((this.count - 1), tester);
 	}
 }
