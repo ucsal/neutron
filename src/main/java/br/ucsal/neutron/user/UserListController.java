@@ -22,7 +22,7 @@ public class UserListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		UserDAO dao = new UserDAO();
-		List<User> usuarios = dao.Listar();
+		List<User> usuarios = dao.listarTodos();
 		request.setAttribute("users", usuarios);
 		request.getRequestDispatcher("/user/list.jsp").forward(request, response);
 	}

@@ -3,6 +3,7 @@ package br.ucsal.neutron.acess;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +17,10 @@ import br.ucsal.neutron.user.UserDAO;
  * Servlet implementation class LoginController
  */
 @WebServlet("/user/login")
-public class UserLoginController extends HttpServlet {
+public class AcessLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public UserLoginController() {
+	public AcessLoginController() {
 		super();
 
 	}
@@ -32,19 +33,17 @@ public class UserLoginController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doGet(request, response);
+
 		UserDAO dao = new UserDAO();
-		List<User> usuarios = dao.Listar();
 		String user = request.getParameter("userName");
 		String password = request.getParameter("userPassword");
-		User userLogin = new User(user, password);
-		for (User usuario : usuarios) {
-			if (userLogin.equals(usuario)) {
-				request.getSession().setAttribute("userName", user);
-				response.sendRedirect("/user/list");
-			} else {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			}
+		User userLogin = dao.buscarLogin(user);
+		if (userLogin == null || !userLogin.getPassword().equals(password)) {
+			request.getSession().setAttribute("msg", "Login e/ou senha inválidos!");
+			response.sendRedirect("/user/login.jsp");
+		} else {
+			request.getSession().setAttribute("usuario", userLogin);
+			response.sendRedirect("/user/dashboard");
 		}
 
 	}

@@ -23,12 +23,12 @@ public class UserDAO {
 		usuarios.remove(tester);
 	}
 
-	public List<User> Listar() {
-		usuarios.add(new User("Teste", "123"));
+	public List<User> listarTodos() {
+		
 		return usuarios;
 	}
 
-	public User ListarUm(Long id) {
+	public User listarPorID(Long id) {
 		int contador = 0;
 		for (User user : usuarios) {
 			contador++;
@@ -40,10 +40,24 @@ public class UserDAO {
 		this.count = contador;
 		return this.tester;
 	}
+	
+	public User buscarLogin(String userName) {
+		User userLogin = null;
+		for (User user : usuarios) {
+			if(user.getUsername().equals(userName)) {
+				userLogin = user;
+			}
+		}
+		return userLogin;
+	}
 
 	public void update(String userName, String passWord) {
 		this.tester.setUsername(userName);
 		this.tester.setPassword(passWord);
 		usuarios.set((this.count - 1), tester);
+	}
+	public void testarListar() {
+		usuarios.add(new User("Teste", "123"));
+		usuarios.add(new User("adm", "123"));
 	}
 }

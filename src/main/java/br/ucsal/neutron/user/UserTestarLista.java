@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UserViewController
+ * Servlet implementation class UserTestarLista
  */
-@WebServlet("/user/view")
-public class UserViewController extends HttpServlet {
+@WebServlet("/user/UserTestarLista")
+public class UserTestarLista extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserViewController() {
+    public UserTestarLista() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,11 +26,9 @@ public class UserViewController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long id = Long.parseLong(request.getParameter("id"));
 		UserDAO dao = new UserDAO();
-		User user = dao.listarPorID(id);
-		request.setAttribute("user", user);
-		request.getRequestDispatcher("/user/view.jsp").forward(request, response);
+		dao.testarListar();
+		response.sendRedirect("/user/login.jsp");
 	}
 
 	/**

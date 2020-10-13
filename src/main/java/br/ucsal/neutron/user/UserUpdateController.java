@@ -29,7 +29,7 @@ public class UserUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long id = Long.parseLong(request.getParameter("id"));
-		User usuario = dao.ListarUm(id);
+		User usuario = dao.listarPorID(id);
 		request.setAttribute("user", usuario);
 		request.getRequestDispatcher("/user/update.jsp").forward(request, response);
 	}
