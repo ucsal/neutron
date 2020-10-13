@@ -11,7 +11,7 @@
 <body>
 	<form action="/user/login" method="post">
 		<h5>
-			Para logar a nível de teste use o exemplo <br> Exemplo: Usuario:
+			Para logar cadastre um usuário e logue no sistema <br> Exemplo: Usuario:
 			Teste senha: 123
 		</h5>
 		<table>
@@ -35,9 +35,10 @@
 		<button>Login</button>
 	</form>
 	<br>
-	<a href="/user/cadastro.jsp">Criar uma conta</a>
+	<a href="/user/cadastro.jsp"><button>Criar uma conta</button></a>
 	<br>
-	<a href="/user/UserTestarLista">Criar alguns users</a>
+	<br>
+	<a href="/user"><button>Listar usuarios</button></a>
 	<br>${ mensagem }
 
 </body>
