@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/courseview")
+@WebServlet("/course/view")
 public class CourseReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -20,7 +20,7 @@ public class CourseReadController extends HttpServlet {
 		Course course = CourseDAO.findById(id);
 		request.setAttribute("course", course);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./course/view.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("../course/view.jsp");
 		dispatcher.forward(request, response);
 	}
 

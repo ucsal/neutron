@@ -15,7 +15,7 @@
 	<div class="container-fluid">
 		<h1>Editar</h1>
 
-		<form action="/courseedit" method="post">
+		<form action="/course/edit" method="post">
 
 			<input type="hidden" name="id" value="${course.id}">
 

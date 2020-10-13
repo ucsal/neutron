@@ -47,8 +47,8 @@
 					<td>${c.coordinator}</td>
 					<td>
 					
-					<a href="/courseview?id=${c.id}">Visualizar&nbsp;</a>
-					<a href="/courseedit?id=${c.id}">Editar&nbsp;</a>
+					<a href="/course/view?id=${c.id}">Visualizar&nbsp;</a>
+					<a href="/course/edit?id=${c.id}">Editar&nbsp;</a>
 					<a href="/coursedelet?id=${c.id}">Excluir</a>
 					
 					</td>			

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/courseedit")
+@WebServlet("/course/edit")
 public class CourseUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -19,7 +19,7 @@ public class CourseUpdateController extends HttpServlet {
 		Course course = CourseDAO.findById(id);
 		request.setAttribute("course", course);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("./course/edit.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("../course/edit.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -37,7 +37,7 @@ public class CourseUpdateController extends HttpServlet {
 		CourseDAO.atualizar(course);
 		request.getSession().setAttribute("save_feedback", true);
 
-		response.sendRedirect("./course");
+		response.sendRedirect("../course");
 		
 	}
 

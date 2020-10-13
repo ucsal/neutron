@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/coursesave")
+@WebServlet("/course/save")
 public class CourseSaveController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class CourseSaveController extends HttpServlet {
 		dao.salvar(course);
 		request.getSession().setAttribute("save_feedback", true);
 
-		response.sendRedirect("./course");
+		response.sendRedirect("../course");
 	}
 
 }
