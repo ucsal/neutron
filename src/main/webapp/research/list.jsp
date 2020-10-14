@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cursos</title>
+<title>Pesquisas</title>
 <!-- CSS only -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -15,15 +15,15 @@
 </head>
 <body>
 <div class="container">
-		<h1>Cursos</h1>
+		<h1>Pesquisas</h1>
 
-		<br> <a href="/course/form.jsp" class="btn btn-primary">Cadastrar
-			Curso</a> <br>
+		<br> <a href="/research/form.jsp" class="btn btn-primary">Nova
+			Pesquisa</a> <br>
 			
 		<c:if test="${save_feedback != null && save_feedback == true}">
 		<br>	
 		<div class="alert alert-success" role="alert">
-		Curso cadastrado com sucesso!
+		Pesquisa salva com sucesso!
 		</div>
 		<br>
 		<c:set var="save_feedback" scope="session" value="null"></c:set>
@@ -35,21 +35,21 @@
 			<thead>
 				<tr>
 					<th>NOME</th>
-					<th>COORDENADOR</th>
+					<th>ID</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 			
-				<c:forEach var="c" items="${courses}">
+				<c:forEach var="r" items="${researches}">
 				<tr>
-					<td>${c.name}</td>
-					<td>${c.coordinator}</td>
+					<td>${r.name}</td>
+					<td>${r.id}</td>
 					<td>
 					
-					<a href="/course/view?id=${c.id}">Visualizar&nbsp;</a>
-					<a href="/course/edit?id=${c.id}">Editar&nbsp;</a>
-					<a href="/coursedelet?id=${c.id}">Excluir</a>
+					<a href="/research/view?id=${r.id}">Visualizar&nbsp;</a>
+					<a href="/research/edit?id=${r.id}">Editar&nbsp;</a>
+					<a href="/research/delet?id=${r.id}">Excluir</a>
 					
 					</td>			
 				</tr>

@@ -1,8 +1,8 @@
-package br.ucsal.neutron.course;
+package br.ucsal.neutron.role;
 
 import java.io.IOException;
+import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/course/view")
-public class CourseReadController extends HttpServlet {
+
+@WebServlet("/rolelist")
+public class RoleListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
+   private RoleDAO dao = new RoleDAO();
+    
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		Course course = CourseDAO.findById(id);
-		request.setAttribute("course", course);
+		List<Role> roles = dao.listar();
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("../course/view.jsp");
-		dispatcher.forward(request, response);
+		request.setAttribute("roles", roles);
+		request.getRequestDispatcher("./role/list.jsp").forward(request, response);
 	}
-
 
 }

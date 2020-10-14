@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Cursos</title>
+<meta charset="ISO-8859-1">
+<title>Projetos</title>
 <!-- CSS only -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -15,18 +14,18 @@
 </head>
 <body>
 <div class="container">
-		<h1>Cursos</h1>
+		<h1>Projetos</h1>
 
-		<br> <a href="/course/form.jsp" class="btn btn-primary">Cadastrar
-			Curso</a> <br>
+		<br> <a href="/project/form.jsp" class="btn btn-primary">Cadastrar
+			Projeto</a> <br>
 			
-		<c:if test="${save_feedback != null && save_feedback == true}">
+		<c:if test="${save_sucess!= null && save_sucess== true}">
 		<br>	
 		<div class="alert alert-success" role="alert">
-		Curso cadastrado com sucesso!
+		Projeto cadastrada com sucesso!
 		</div>
 		<br>
-		<c:set var="save_feedback" scope="session" value="null"></c:set>
+		<c:set var="save_sucess" scope="session" value="null"></c:set>
 		</c:if>
 
 	
@@ -34,24 +33,17 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>NOME</th>
-					<th>COORDENADOR</th>
-					<th></th>
+					<th>TÍTULO</th>
+					<th>DESCRIÇÃO</th>
 				</tr>
 			</thead>
 			<tbody>
 			
-				<c:forEach var="c" items="${courses}">
+				<c:forEach var="p" items="${projects}">
 				<tr>
-					<td>${c.name}</td>
-					<td>${c.coordinator}</td>
-					<td>
-					
-					<a href="/course/view?id=${c.id}">Visualizar&nbsp;</a>
-					<a href="/course/edit?id=${c.id}">Editar&nbsp;</a>
-					<a href="/coursedelet?id=${c.id}">Excluir</a>
-					
-					</td>			
+					<td>${p.title}</td>
+					<td>${p.description}</td>
+					<td><a href="./projectdelete?id=${p.id}">Excluir</a></td>
 				</tr>
 				</c:forEach>
 				
@@ -59,7 +51,18 @@
 		</table>
 	</div>
 
-	<!-- JS, Popper.js, and jQuery -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- JS, Popper.js, and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
@@ -71,5 +74,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 		crossorigin="anonymous"></script>
+
 </body>
 </html>
