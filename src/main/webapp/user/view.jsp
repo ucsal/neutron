@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>View</title>
 </head>
 <body>
 	<table class="table table-striped">
@@ -17,8 +17,8 @@
 
 		<tbody>
 			<tr>
-				<td>${usuario.id}</td>
-				<td>${usuario.username}</td>
+				<td>${user.id}</td>
+				<td>${user.username}</td>
 			</tr>
 		</tbody>
 

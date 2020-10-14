@@ -1,5 +1,4 @@
-<%@page import="br.ucsal.neutron.user.model.User"%>
-<%@page import="br.ucsal.neutron.user.dao.*"%>
+<%@page import="br.ucsal.neutron.user.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -24,14 +23,15 @@
 				<tr>
 					<td>${u.id}</td>
 					<td>${u.username}</td>
-					<td><a href="/user/DeleteUserController?id=${ u.id }">Excluir</a>
-						<a href="/user/UserListadoController?id=${ u.id }">Visualizar</a> <a
-						href="/user/UpdateController?id=${ u.id }">Editar</a></td>
+					<td><a href="/user/delete?id=${ u.id }">Excluir</a>
+						<a href="/user/view?id=${ u.id }">Visualizar</a> <a
+						href="/user/form?id=${ u.id }">Editar</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 
 	</table>
+<a href="/user/logout"><button>Voltar</button></a>
 
 </body>
 </html>

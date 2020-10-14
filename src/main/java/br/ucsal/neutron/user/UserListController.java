@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.controller;
+package br.ucsal.neutron.user;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,14 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.neutron.user.dao.UserDAO;
-import br.ucsal.neutron.user.model.User;
-
-@WebServlet("/user/ListController")
-public class ListController extends HttpServlet {
+@WebServlet("/user/")
+public class UserListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ListController() {
+	public UserListController() {
 		super();
 
 	}
@@ -25,9 +22,9 @@ public class ListController extends HttpServlet {
 			throws ServletException, IOException {
 
 		UserDAO dao = new UserDAO();
-		List<User> usuarios = dao.Listar();
+		List<User> usuarios = dao.listarTodos();
 		request.setAttribute("users", usuarios);
-		request.getRequestDispatcher("/user/userlist.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/list.jsp").forward(request, response);
 	}
 
 }
