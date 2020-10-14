@@ -1,4 +1,4 @@
-package br.ucsal.neutron.course;
+package br.ucsal.neutron.research;
 
 import java.io.IOException;
 
@@ -9,35 +9,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/course/edit")
-public class CourseUpdateController extends HttpServlet {
+
+/**
+ * Servlet implementation class ResearchUpdateController
+ */
+@WebServlet("/research/edit")
+public class ResearchUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
-		Course course = CourseDAO.findById(id);
-		request.setAttribute("course", course);
+		Long id = Long.parseLong(request.getParameter("id"));
+		Research research = ResearchDAO.findById(id);
+		request.setAttribute("research", research);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("../course/edit.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("../research/edit.jsp");
 		dispatcher.forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		Long id = Long.parseLong(request.getParameter("id"));
 		String name = request.getParameter("name");
-		String coordinator = request.getParameter("coordinator");
 		String description = request.getParameter("description");
-		Course course = new Course(); 
-		course.setId(id);
-		course.setName(name);
-		course.setCoordinator(coordinator);
-		course.setDescription(description);
-		CourseDAO.atualizar(course);
+		Research research = new Research(); 
+		research.setId(id);
+		research.setName(name);
+		research.setDescription(description);
+		ResearchDAO.atualizar(research);
 		request.getSession().setAttribute("save_feedback", true);
 
-		response.sendRedirect("../course");
+		response.sendRedirect("../research");
 		
 	}
 
