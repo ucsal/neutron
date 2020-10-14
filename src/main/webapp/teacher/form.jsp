@@ -15,7 +15,7 @@
 <h1>Professores</h1>
 
 
-<form action="/teacher/save" method="post">
+<form action="/teacher/form" method="post">
 
  <input type="hidden" name="id" value="${teacher.id}">
 
@@ -37,17 +37,13 @@
    	<input type="text" class="form-control" name="research" value="${teacher.research}" id="titulo" placeholder="Nome da Tarefa"  required>
   </div>
   
-   <div class="form-group">
-   	<label for="research">Research</label>
-   	<input type="text" class="form-control" name="research" value="${teacher.research}" id="titulo" placeholder="Nome da Tarefa"  required>
-  </div>
   
    <div class="form-group">
       	<label for="degree">Degrees</label>
    		<select type="text" class="form-control" name="degree" id="degree" required>
    			<option value="">Selecione</option>
    			<c:forEach var="d" items="${degrees}">
-   				<option value="${d.name}">${d.name}</option>
+   				<option value="${d.id}">${d.name}</option>
   			</c:forEach>
    		</select>
    </div>

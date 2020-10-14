@@ -16,7 +16,7 @@ import br.ucsal.neutron.user.UserDAO;
 /**
  * Servlet implementation class LoginController
  */
-@WebServlet("/user/login")
+@WebServlet("/login")
 public class AcessLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

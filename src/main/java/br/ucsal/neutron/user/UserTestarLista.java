@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UserTestarLista
  */
-@WebServlet("/user/UserTestarLista")
+@WebServlet("/UserTestarLista")
 public class UserTestarLista extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -28,7 +28,7 @@ public class UserTestarLista extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserDAO dao = new UserDAO();
 		dao.testarListar();
-		response.sendRedirect("/user/login.jsp");
+		response.sendRedirect("/login.jsp");
 	}
 
 	/**

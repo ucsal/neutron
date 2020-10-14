@@ -20,6 +20,8 @@
 <tr>
 <th>ID</th>
 <th>NOME</th>
+<th>TITULAÇÃO</th>
+
 <th></th>
 </tr>
 </thead>
@@ -31,6 +33,8 @@
 	<tr>
 		<td>${t.id}</td>
 		<td>${t.name}</td>
+		<td>${t.degree.name}</td>
+		
 		<td><a href="#" >Excluir</a>
 			<a href="#" >Visualizar</a>
 			<a href="#" >Editar</a>

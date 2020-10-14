@@ -7,7 +7,7 @@
 <title>Usuarios</title>
 </head>
 <body>
-	<button onclick="location.href='/user/login.jsp'">Login</button>
+	<button onclick="location.href='/login.jsp'">Login</button>
 </body>
 
 </html>
