@@ -16,7 +16,7 @@ import br.ucsal.neutron.user.User;
 /**
  * Servlet Filter implementation class UserLoginFilter
  */
-@WebFilter("/user/dashboard")
+@WebFilter(urlPatterns = {"/user/*", "/teacher/*"} )
 public class AcessFilter implements Filter {
 
 	/**

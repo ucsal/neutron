@@ -9,7 +9,7 @@
 
 </head>
 <body>
-	<form action="/user/login" method="post">
+	<form action="/login" method="post">
 		<h5>
 			Para logar cadastre um usuário e logue no sistema <br> Exemplo: Usuario:
 			Teste senha: 123
@@ -37,7 +37,7 @@
 	<br>
 	<a href="/user/cadastro.jsp"><button>Criar uma conta</button></a>
 	<br>
-	<a href="/user/UserTestarLista"><button>Adicionar Usuarios Teste</button></a>
+	<a href="/UserTestarLista"><button>Adicionar Usuarios Teste</button></a>
 	<br>${ mensagem }
 
 </body>
