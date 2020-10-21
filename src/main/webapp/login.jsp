@@ -4,41 +4,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Usuarios</title>
-
-
+<title>Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/login.css"> 
 </head>
 <body>
-	<form action="/login" method="post">
-		<h5>
-			Para logar cadastre um usuário e logue no sistema <br> Exemplo: Usuario:
-			Teste senha: 123
-		</h5>
-		<table>
-			<tr>
-				<td><font face="verdana" size="5px">Username:</font></td>
-				<td><input type="text" name="userName" required="required"></td>
-			</tr>
-			<tr>
-				<td><font face="verdana" size="5px">Password:</font></td>
-				<td><input type="password" name="userPassword"
-					required="required"></td>
-			</tr>
 
-			<tr>
+<div class="container" >
 
-				<td>${ erro }</td>
+	<form class="form-signin" action="/login" method="post">
 
-			</tr>
+		<div class="text-center mb-4">
+			<h1>NEUTRON</h1>
+		</div>
 
-		</table>
-		<button>Login</button>
+	<div class="form-label-group">
+  	  	<input type="text" name="username" class="form-control" id="username" placeholder="Username" required="required">
+   	 	<label for="username">Username</label>
+
+  	</div>
+
+	<div class="form-label-group">
+  	  	<input type="password" name="userpassword" class="form-control" id="userpassword" placeholder="Password" required="required">
+     	<label for="username">Password</label>
+  
+  	</div>
+	${ erro }
+	<button class="btn btn-primary" type="submit">Login</button>
+	
+	<a href="/user/cadastro.jsp">Criar uma conta</a>
+	
 	</form>
 	<br>
-	<a href="/user/cadastro.jsp"><button>Criar uma conta</button></a>
-	<br>
-	<a href="/UserTestarLista"><button>Adicionar Usuarios Teste</button></a>
-	<br>${ mensagem }
+	
+</div>
 
 </body>
 

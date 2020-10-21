@@ -20,28 +20,20 @@ import br.ucsal.neutron.user.UserDAO;
 public class AcessLoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AcessLoginController() {
-		super();
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
+	private AcessBO bo = new AcessBO();
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserDAO dao = new UserDAO();
-		String user = request.getParameter("userName");
-		String password = request.getParameter("userPassword");
-		User userLogin = dao.buscarLogin(user);
-		if (userLogin == null || !userLogin.getPassword().equals(password)) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("userpassword");
+
+		User user = bo.login(username,password);
+		if (user == null) {
 			request.setAttribute("erro", "Usuario ou Senha invalidos");
-			request.getRequestDispatcher("/user/login.jsp").forward(request, response);
-		} else {
-			request.getSession().setAttribute("usuario", userLogin);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		}else {
+			request.getSession().setAttribute("usuario", user);
 			response.sendRedirect("/user/dashboard");
 		}
 

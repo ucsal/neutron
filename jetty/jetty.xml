@@ -7,7 +7,7 @@
          <Arg>jdbc/neutronDS</Arg>
          <Arg>
              <New class="org.hsqldb.jdbc.JDBCDataSource">
-				 <Set name="DatabaseName">hsql://localhost/banco</Set>   
+				 <Set name="DatabaseName">file:database/banco</Set>   
 				 <!-- <Set name="DatabaseName">hsql://localhost/bancoserver</Set>-->
                  <Set name="User">SA</Set>
                  <Set name="Password">sa</Set>

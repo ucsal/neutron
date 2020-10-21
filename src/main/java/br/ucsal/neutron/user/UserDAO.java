@@ -1,13 +1,17 @@
 package br.ucsal.neutron.user;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.ucsal.neutron.db.Database;
 
 public class UserDAO {
 
 	private static List<User> usuarios = new ArrayList<>();
-	private User tester = new User();
-	private int count;
 
 	public void save(User usuario) {
 		usuarios.add(usuario);
@@ -29,16 +33,13 @@ public class UserDAO {
 	}
 
 	public User listarPorID(Long id) {
-		int contador = 0;
+		User retorno = null;
 		for (User user : usuarios) {
-			contador++;
 			if (user.getId() == id) {
-				this.tester = user;
-
+				retorno = user;
 			}
 		}
-		this.count = contador;
-		return this.tester;
+		return retorno;
 	}
 	
 	public User buscarLogin(String userName) {
@@ -51,13 +52,39 @@ public class UserDAO {
 		return userLogin;
 	}
 
-	public void update(String userName, String passWord) {
-		this.tester.setUsername(userName);
-		this.tester.setPassword(passWord);
-		usuarios.set((this.count - 1), tester);
+	
+	public void update(User user) {
+		User userFind = listarPorID(user.getId());
+		userFind.setUsername(user.getUsername());
+		userFind.setUsername(user.getPassword());
 	}
-	public void testarListar() {
-		usuarios.add(new User("Teste", "123"));
-		usuarios.add(new User("adm", "123"));
+
+	public User buscarLogin(String username, String password) {
+		try {
+			Connection conexao = Database.getInstacia().conexao();
+			String sql = "SELECT ID,USERNAME,PASSWORD FROM USER "
+					+ "WHERE USERNAME='"+username+"' and PASSWORD='"+password+"'";
+			String sql2 = "SELECT ID,USERNAME,PASSWORD FROM USER "
+					+ "WHERE USERNAME=? and PASSWORD=?";
+			System.out.println(sql2);
+			PreparedStatement statement = conexao.prepareStatement(sql2);
+			statement.setString(1, username);
+			statement.setString(2, password);
+			ResultSet resultSet = statement.executeQuery();
+			User user = null;
+			if(resultSet.next()) {
+				user = new User();
+				user.setId(resultSet.getLong("ID"));
+				user.setUsername(resultSet.getString("USERNAME"));
+				user.setPassword(resultSet.getString("PASSWORD"));
+			}
+			return user;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
+
 }
