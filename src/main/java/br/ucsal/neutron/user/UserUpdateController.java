@@ -40,7 +40,15 @@ public class UserUpdateController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("userName");
 		String password = request.getParameter("password");
-		dao.update(username, password);
+		String id = request.getParameter("id");
+
+		if(id!=null && !id.isEmpty()) {
+			User user = new User();
+			user.setId(Long.parseLong(id));
+			user.setUsername(username);
+			user.setPassword(password);
+			dao.update(user);
+		}
 		response.sendRedirect("/user/");
 	}
 

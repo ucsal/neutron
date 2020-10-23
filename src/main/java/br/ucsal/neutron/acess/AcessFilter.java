@@ -44,7 +44,7 @@ public class AcessFilter implements Filter {
 
 		if (user == null) {
 			request.setAttribute("erro", "Acesso Proibido");
-			request.getRequestDispatcher("/user/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		} else {
 			// pass the request along the filter chain
 			chain.doFilter(request, response);

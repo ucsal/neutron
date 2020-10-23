@@ -52,11 +52,22 @@
 				<version>9.4.31.v20200723</version>
 				<configuration>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<jettyXml>jetty/jetty.xml</jettyXml>
 					<httpConnector>
 						<port>8080</port>
 					</httpConnector>
+					<webApp>
+						<extraClasspath>${basedir}/jetty/classpath</extraClasspath>
+					</webApp>
 				</configuration>
-
+				<dependencies>
+					<dependency>
+						<groupId>org.hsqldb</groupId>
+						<artifactId>hsqldb</artifactId>
+						<version>2.5.1</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

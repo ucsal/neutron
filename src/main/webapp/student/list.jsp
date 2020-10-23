@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,11 +16,11 @@
 		<h1> Student Form </h1>
 		<br> <a href="/student/form.jsp" class="btn btn-primary"> Cadastrar Aluno </a> <br>
 
-		<c if test="${salvo != null && salvo == true}"><br>
+		<c:if test="${salvo != null && salvo == true}"><br>
 			<div class="alert alert-success" role="alert"> ALUNO CADASTRADO </div>
 			<br>
 			<c:set var="salvo" scope="session" value="null"></c:set>
-			</c:if>
+		</c:if>
 
 
 			<table class="table table-striped">
