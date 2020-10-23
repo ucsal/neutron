@@ -6,9 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Listar Usuarios</title>
+<jsp:include page="../header.jsp" />
+
 </head>
 <body>
+
+<jsp:include page="../navbar.jsp" />
+<div class="container">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -31,7 +35,9 @@
 		</tbody>
 
 	</table>
-<a href="/user/logout"><button>Voltar</button></a>
+ </div>
+ 
+<jsp:include page="../scripts.jsp" />
 
 </body>
 </html>

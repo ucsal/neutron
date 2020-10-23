@@ -4,8 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 import br.ucsal.neutron.db.Database;
 
@@ -28,8 +34,29 @@ public class UserDAO {
 	}
 
 	public List<User> listarTodos() {
-		
-		return usuarios;
+		Context ctx;
+		DataSource ds;
+		List<User> lista = new ArrayList<User>();
+		try {
+			ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("jdbc/neutronDS");
+			Statement stmt = ds.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT ID,USERNAME,PASSWORD FROM USER");
+			while(rs.next()) {
+				User user = new User();
+				user.setId(rs.getLong("ID"));
+				user.setUsername(rs.getString("USERNAME"));
+				user.setPassword(rs.getString("PASSWORD"));
+				lista.add(user);
+			}
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return lista;
 	}
 
 	public User listarPorID(Long id) {
