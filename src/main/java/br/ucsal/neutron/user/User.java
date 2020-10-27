@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.model;
+package br.ucsal.neutron.user;
 
 public class User {
 	private static Long count = (long) 0;

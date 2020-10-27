@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.controller;
+package br.ucsal.neutron.user;
 
 import java.io.IOException;
 
@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ucsal.neutron.user.dao.UserDAO;
-
 /**
  * Servlet implementation class DeleteUserController
  */
-@WebServlet("/user/DeleteUserController")
-public class DeleteUserController extends HttpServlet {
+@WebServlet("/user/delete")
+public class UserDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteUserController() {
+    public UserDeleteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,8 +28,9 @@ public class DeleteUserController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long id = Long.parseLong(request.getParameter("id"));
-		UserDAO.delete(id);
-		response.sendRedirect("/user/ListController");
+		UserDAO dao = new UserDAO();
+		dao.delete(id);
+		response.sendRedirect("/user/");
 	}
 
 	/**

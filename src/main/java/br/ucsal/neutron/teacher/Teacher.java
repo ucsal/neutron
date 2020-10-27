@@ -6,7 +6,7 @@ public class Teacher {
 	private String course;
 	private String email;
 	private String research;
-	private String degree;
+	private Degree degree;
 	
 	public Long getId() {
 		return id;
@@ -38,12 +38,13 @@ public class Teacher {
 	public void setResearch(String research) {
 		this.research = research;
 	}
-	public String getDegree() {
+	public Degree getDegree() {
 		return degree;
 	}
-	public void setDegree(String degree) {
+	public void setDegree(Degree degree) {
 		this.degree = degree;
 	}
+
 	
 	
 }

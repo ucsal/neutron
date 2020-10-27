@@ -1,4 +1,4 @@
-package br.ucsal.neutron.user.controller;
+package br.ucsal.neutron.project;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,22 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/RemoveController")
-public class RemoveController extends HttpServlet {
+@WebServlet("/projectdelete")
+public class ProjectDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-    public RemoveController() {
-        super();
-     
-    }
-
+ 
+	ProjectDAO dao = new ProjectDAO();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		dao.delete(id);
+		response.sendRedirect("./project/list.jsp");
 
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	
-
 }
