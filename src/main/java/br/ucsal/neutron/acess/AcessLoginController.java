@@ -30,7 +30,7 @@ public class AcessLoginController extends HttpServlet {
 
 		User user = bo.login(username,password);
 		if (user == null) {
-			request.setAttribute("erro", "Usuario ou Senha invalidos");
+			request.setAttribute("erro", "Usuário ou Senha inválidos");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}else {
 			request.getSession().setAttribute("usuario", user);
