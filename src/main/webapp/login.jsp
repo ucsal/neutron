@@ -29,7 +29,8 @@
      	<label for="username">Password</label>
   
   	</div>
-	${ erro }
+  	<p class="text-danger">${ erro }</p>
+	
 	<button class="btn btn-primary" type="submit">Login</button>
 	
 	<a href="/user/cadastro.jsp">Criar uma conta</a>
